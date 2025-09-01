@@ -1,4 +1,4 @@
-# copy-nvim
+# copy.nvim
 
 Copy visual selection with additional information
 
@@ -6,9 +6,9 @@ Copy visual selection with additional information
 
 ```lua
 {
-	"zlatej/copy-nvim",
+	"zlatej/copy.nvim",
 	config = function()
-		require("copy-nvim").setup()
+		require("copy.nvim").setup()
 	end,
 }
 ```
