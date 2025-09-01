@@ -1,6 +1,6 @@
 # copy.nvim
 
-Copy visual selection with additional information
+Copy with additional filename and line number
 
 ## Setup
 
@@ -10,13 +10,19 @@ Lazy:
 return {
 	"zlatej/copy.nvim",
 	config = function()
-		require("copy.nvim").setup({
+		require("copy").setup({
             keymap = {
-                line = "<leader>cc",
+                line = "<leader>cc", -- default
             },
             -- Prefix to strip absolute path
-            prefix = "/home/user",
+            prefix = "/home/user/",
         })
 	end,
 }
 ```
+
+## Features 
+- [x] Whole line copy
+- [ ] Visual selection copy
+- [ ] Customization
+
