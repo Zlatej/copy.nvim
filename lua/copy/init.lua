@@ -8,8 +8,10 @@ function M.setup(opts)
 
 	vim.api.nvim_create_user_command("Copy line with context", M.copy_line, {})
 	vim.api.nvim_create_user_command("Copy context", M.copy_context, {})
+	vim.api.nvim_create_user_command("Copy selection with context", M.copy_selection, {})
 	vim.keymap.set("n", cfg.keymap.cp_line, M.copy_line, { desc = "Copies line with context" })
 	vim.keymap.set("n", cfg.keymap.cp_visual, M.copy_context, { desc = "Copies context" })
+	vim.keymap.set("v", cfg.keymap.cp_visual, M.copy_selection, { desc = "Copies selection with context" })
 end
 
 function M.copy_line()
@@ -19,6 +21,24 @@ end
 
 function M.copy_context()
 	M.copy("")
+end
+
+function M.copy_selection()
+	local vstart = vim.fn.getpos(">'")
+	local vend = vim.fn.getpos("'<")
+
+	local line_start = vstart[2]
+	local line_end = vend[2]
+	local lines = vim.fn.getline(line_start, line_end)
+
+	local selection
+	if type(lines) == "table" then
+		selection = table.concat(lines, "\n")
+	else
+		selection = lines
+	end
+
+	M.copy(selection)
 end
 
 ---@param selection string|string[]
