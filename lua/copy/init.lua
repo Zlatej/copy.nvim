@@ -31,6 +31,9 @@ function M.copy(selection)
 
 	local res
 	if #selection ~= 0 then
+		if cfg.remove_indent then
+			selection = TrimIndent(selection)
+		end
 		res = string.format("%s:%d\n%s", file, line_num, selection)
 	else
 		res = string.format("%s:%d", file, line_num)
@@ -38,6 +41,10 @@ function M.copy(selection)
 
 	vim.fn.setreg("+", res)
 	print("Copied line " .. line_num .. ": " .. selection)
+end
+
+function TrimIndent(str)
+	return str:match("^%s*(.-)%s*$")
 end
 
 return M

@@ -8,6 +8,7 @@ M.defaults = {
 	},
 	-- Prefix to strip absolute path
 	prefix = nil,
+	remove_indent = true,
 }
 
 function M.setup(custom_opts)
