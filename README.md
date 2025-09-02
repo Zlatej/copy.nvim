@@ -15,8 +15,8 @@ return {
                 cp_context = "<leader>cc"
                 cp_line = "<leader>cl", 
             },
-            -- Prefix to strip off absolute path
-            prefix = "/home/user/",
+            prefix = "", -- Prefix to strip off absolute path, e.g. "/home/user/"
+            remove_indent = true
         })
 	end,
 }

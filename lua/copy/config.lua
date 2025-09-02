@@ -7,7 +7,7 @@ M.defaults = {
 		cp_visual = "<leader>cc",
 	},
 	-- Prefix to strip absolute path
-	prefix = nil,
+	prefix = "",
 	remove_indent = true,
 }
 
