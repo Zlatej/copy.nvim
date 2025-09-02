@@ -8,8 +8,8 @@ function M.setup(opts)
 
 	vim.api.nvim_create_user_command("Copy line with context", M.copy_line, {})
 	vim.api.nvim_create_user_command("Copy context", M.copy_context, {})
-	vim.keymap.set("n", cfg.keymap.line, M.copy_line, { desc = "Copies line with context" })
-	vim.keymap.set("v", cfg.keymap.visual, M.copy_context, { desc = "Copies context" })
+	vim.keymap.set("n", cfg.keymap.cp_line, M.copy_line, { desc = "Copies line with context" })
+	vim.keymap.set("v", cfg.keymap.cp_visual, M.copy_context, { desc = "Copies context" })
 end
 
 function M.copy_line()
