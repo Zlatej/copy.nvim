@@ -11,10 +11,11 @@ return {
 	"zlatej/copy.nvim",
 	config = function()
 		require("copy").setup({
-            keymap = {
-                line = "<leader>cc", -- default
+            keymap = { -- default keymaps
+                cp_context = "<leader>cc"
+                cp_line = "<leader>cl", 
             },
-            -- Prefix to strip absolute path
+            -- Prefix to strip off absolute path
             prefix = "/home/user/",
         })
 	end,
@@ -22,7 +23,8 @@ return {
 ```
 
 ## Features 
-- [x] Whole line copy
+- [x] Copy only context
+- [x] One line copy
 - [ ] Visual selection copy
-- [ ] Customization
+- [ ] Customizate context
 

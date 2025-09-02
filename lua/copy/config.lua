@@ -2,7 +2,9 @@ local M = {}
 
 M.defaults = {
 	keymap = {
-		line = "<leader>cc",
+		cp_context = "<leader>cc",
+		cp_line = "<leader>cl",
+		cp_visual = "<leader>cc",
 	},
 	-- Prefix to strip absolute path
 	prefix = nil,
