@@ -23,13 +23,17 @@ function M.copy_line()
 		line = TrimIndent(line)
 	end
 	M.copy(line)
+	local line_num = vim.fn.line(".")
+	print("Copied line " .. line_num .. ": " .. line)
 end
 
 function M.copy_context()
-	M.copy("")
+	local res = M.copy("")
+	print("Copied context: " .. res)
 end
 
 ---@param selection string
+---@return string
 function M.copy(selection)
 	local file = vim.fn.expand("%:p")
 	if #cfg.prefix ~= 0 and file:sub(1, #cfg.prefix) == cfg.prefix then
@@ -45,7 +49,7 @@ function M.copy(selection)
 	end
 
 	vim.fn.setreg("+", res)
-	print("Copied line " .. line_num .. ": " .. selection)
+	return res
 end
 
 ---@param str string
