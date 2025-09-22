@@ -25,6 +25,7 @@ return {
 ## Features 
 - [x] Copy only context
 - [x] One line copy
+- [ ] More dynamic path prefix removing
 - [ ] Visual selection copy
 - [ ] Customizate context
 
