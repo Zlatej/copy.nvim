@@ -15,7 +15,13 @@ return {
                 cp_context = "<leader>cc"
                 cp_line = "<leader>cl", 
             },
-            prefix = "", -- Prefix to strip off absolute path, e.g. "/home/user/"
+            -- Array of path prefixes to strip from absolute file paths
+            -- Prefixes are processed sequentially in the order listed
+            -- Example: /home/user/code/copy-nvim/README.md -> copy-nvim/README.md
+            prefixes = {
+                "/home/user",
+                "code"
+            },
             remove_indent = true
         })
 	end,
