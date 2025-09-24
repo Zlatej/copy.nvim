@@ -1,12 +1,7 @@
 local M = {}
-local DEBUG = true
 local log_file = vim.fn.stdpath("data") .. "/copy_nvim_debug.log"
 
 function M.debug(...)
-	if not DEBUG then
-		return
-	end
-
 	local args = { ... }
 	local message = table.concat(
 		vim.tbl_map(function(arg)
