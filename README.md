@@ -22,8 +22,8 @@ return {
                 -- /home/user/.zshrc -> .zshrc
                 -- /home/user2/.zshrc -> /home/user2/.zshrc
             prefixes = {
-                "/home/user/",
-                "code/"
+                "/home/user",
+                "code"
             },
             remove_indent = true
         })
