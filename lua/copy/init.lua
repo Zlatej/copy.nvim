@@ -42,7 +42,6 @@ end
 ---@param path string
 ---@return string
 local function trim_slash(path)
-	log.debug(path:sub(1, 1))
 	if path:sub(1, 1) == "/" then
 		return path:sub(2)
 	end
@@ -53,10 +52,8 @@ end
 ---@return string
 local function remove_prefix_path(path)
 	for _, fragment in ipairs(cfg.prefixes) do
-		log.debug("path=" .. path, "fragment=" .. fragment)
 		path = trim_slash(path)
 		fragment = trim_slash(fragment)
-		log.debug("path=" .. path, "fragment=" .. fragment)
 		if path:sub(1, #fragment) == fragment then
 			path = path:sub(#fragment + 1)
 		end
