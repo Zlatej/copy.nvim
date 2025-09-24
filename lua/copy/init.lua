@@ -1,4 +1,3 @@
-local log = require("copy.log")
 local M = {}
 
 local cfg = {}
