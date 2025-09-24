@@ -1,6 +1,8 @@
 local M = {}
 local log_file = vim.fn.stdpath("data") .. "/copy_nvim_debug.log"
 
+--- Logs input arguments to file
+---@param ... any
 function M.debug(...)
 	local args = { ... }
 	local message = table.concat(
