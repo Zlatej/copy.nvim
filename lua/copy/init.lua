@@ -1,3 +1,4 @@
+local log = require("copy.log")
 local M = {}
 
 local cfg = {}
@@ -17,10 +18,16 @@ function M.setup(opts)
 	-- vim.keymap.set("v", cfg.keymap.cp_visual, M.copy_selection, { desc = "Copy visual selection" })
 end
 
+---@param str string
+---@return string
+local function trimIndent(str)
+	return str:match("^%s*(.-)%s*$")
+end
+
 function M.copy_line()
 	local line = vim.api.nvim_get_current_line()
 	if cfg.remove_indent then
-		line = TrimIndent(line)
+		line = trimIndent(line)
 	end
 	M.copy(line)
 	local line_num = vim.fn.line(".")
@@ -32,13 +39,36 @@ function M.copy_context()
 	print("Copied context: " .. res)
 end
 
+---@param path string
+---@return string
+local function trim_slash(path)
+	log.Debug(path:sub(1, 1))
+	if path:sub(1, 1) == "/" then
+		return path:sub(2)
+	end
+	return path
+end
+
+---@param path string
+---@return string
+local function remove_prefix_path(path)
+	for _, fragment in ipairs(cfg.prefixes) do
+		log.debug("path=" .. path, "fragment=" .. fragment)
+		path = trim_slash(path)
+		fragment = trim_slash(fragment)
+		log.debug("path=" .. path, "fragment=" .. fragment)
+		if path:sub(1, #fragment) == fragment then
+			path = path:sub(#fragment + 1)
+		end
+	end
+	return trim_slash(path)
+end
+
 ---@param selection string
 ---@return string
 function M.copy(selection)
 	local file = vim.fn.expand("%:p")
-	if #cfg.prefix ~= 0 and file:sub(1, #cfg.prefix) == cfg.prefix then
-		file = file:sub(#cfg.prefix + 1)
-	end
+	file = remove_prefix_path(file)
 	local line_num = vim.fn.line(".")
 
 	local res
@@ -50,12 +80,6 @@ function M.copy(selection)
 
 	vim.fn.setreg("+", res)
 	return res
-end
-
----@param str string
----@return string
-function TrimIndent(str)
-	return str:match("^%s*(.-)%s*$")
 end
 
 return M

@@ -6,8 +6,8 @@ M.defaults = {
 		cp_line = "<leader>cl",
 		cp_visual = "<leader>cc",
 	},
-	-- Prefix to strip absolute path
-	prefix = "",
+	-- Prefixes to strip absolute path
+	prefixes = {},
 	remove_indent = true,
 }
 
