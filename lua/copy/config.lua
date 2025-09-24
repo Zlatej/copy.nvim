@@ -13,6 +13,14 @@ M.defaults = {
 
 function M.setup(custom_opts)
 	custom_opts = custom_opts or {}
+	if custom_opts.prefix and custom_opts.prefix ~= "" then
+		if not custom_opts.prefixes then
+			custom_opts.prefixes = {}
+		end
+		table.insert(custom_opts.prefixes, 1, custom_opts.prefix)
+		vim.notify("copy.nvim: 'prefix' option is deprecated, use 'prefixes' array instead", vim.log.levels.WARN)
+		custom_opts.prefix = nil
+	end
 	return vim.tbl_deep_extend("force", M.defaults, custom_opts)
 end
 
