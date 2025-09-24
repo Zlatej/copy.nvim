@@ -42,7 +42,7 @@ end
 ---@param path string
 ---@return string
 local function trim_slash(path)
-	log.Debug(path:sub(1, 1))
+	log.debug(path:sub(1, 1))
 	if path:sub(1, 1) == "/" then
 		return path:sub(2)
 	end
