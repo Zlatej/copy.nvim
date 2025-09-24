@@ -17,10 +17,13 @@ return {
             },
             -- Array of path prefixes to strip from absolute file paths
             -- Prefixes are processed sequentially in the order listed
-            -- Example: /home/user/code/copy-nvim/README.md -> copy-nvim/README.md
+            -- Examples for this config:
+                -- /home/user/code/copy-nvim/README.md -> copy-nvim/README.md
+                -- /home/user/.zshrc -> .zshrc
+                -- /home/user2/.zshrc -> /home/user2/.zshrc
             prefixes = {
-                "/home/user",
-                "code"
+                "/home/user/",
+                "code/"
             },
             remove_indent = true
         })
@@ -31,7 +34,7 @@ return {
 ## Features 
 - [x] Copy only context
 - [x] One line copy
-- [ ] More dynamic path prefix removing
+- [x] More dynamic path prefix removing
 - [ ] Visual selection copy
 - [ ] Customizate context
 
