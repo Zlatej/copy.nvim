@@ -8,21 +8,21 @@ Stop playing CodeGuessr - share your code with file location
 ## ⚙️ Default keybinds + example output
  - **Copy context** ~ `<leader>cc`
 ```
-copy-nvim/README.md:6
+ctx-copy-nvim/README.md:6
 ```
  - **Copy line with context** ~ `<leader>cl`
 ```
-copy-nvim/README.md:23
-"zlatej/copy.nvim",
+ctx-copy-nvim/README.md:23
+"zlatej/ctx-copy.nvim",
 ```
 
 ## 📦 Setup
 Lazy:
 ```lua
 return {
-	"zlatej/copy.nvim",
+	"zlatej/ctx-copy.nvim",
 	config = function()
-		require("copy").setup({
+		require("ctx-copy").setup({
             keymap = { -- default keymaps
                 cp_context = "<leader>cc"
                 cp_line = "<leader>cl", 
@@ -30,7 +30,7 @@ return {
             -- Array of path prefixes to strip from absolute file paths
             -- Prefixes are processed sequentially in the order listed
             -- Examples for this config:
-                -- /home/user/code/copy-nvim/README.md -> copy-nvim/README.md
+                -- /home/user/code/ctx-copy-nvim/README.md -> ctx-copy-nvim/README.md
                 -- /home/user/.zshrc -> .zshrc
                 -- /home/user2/.zshrc -> /home/user2/.zshrc
             prefixes = {

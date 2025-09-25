@@ -3,7 +3,7 @@ local M = {}
 local cfg = {}
 
 function M.setup(opts)
-	local config = require("copy.config")
+	local config = require("ctx-copy.config")
 	cfg = config.setup(opts)
 
 	-- Line

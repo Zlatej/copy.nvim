@@ -1,5 +1,5 @@
 local M = {}
-local log_file = vim.fn.stdpath("data") .. "/copy_nvim_debug.log"
+local log_file = vim.fn.stdpath("data") .. "/ctx-copy_nvim_debug.log"
 
 --- Logs input arguments to file
 ---@param ... any
