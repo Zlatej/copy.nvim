@@ -48,5 +48,5 @@ return {
 - [x] One line copy
 - [x] More dynamic path prefix removing
 - [ ] Visual selection copy
-- [ ] Customizate context
+- [ ] Customize context
 
