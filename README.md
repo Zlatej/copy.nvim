@@ -1,6 +1,19 @@
-# copy.nvim
+# ctx-copy.nvim
 
-Copy with additional filename and line number
+Copy with additional context - path:line
+
+## Default keybinds
+### Copy context
+```md
+# <leader>cc
+copy-nvim/README.md:6
+```
+### Copy line with context
+```md
+# <leader>cl
+copy-nvim/README.md:24
+"zlatej/copy.nvim",
+```
 
 ## Setup
 
