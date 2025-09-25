@@ -1,24 +1,23 @@
-# ctx-copy.nvim
+# 📋 ctx-copy.nvim 
+Stop playing CodeGuessr - share your code with file location
 
-Copy with additional context - path:line
+## ✨ Features 
+ - Copy code with file context (path:line) to clipboard
+ - Customizable path prefix removal for cleaner output
 
-## Default keybinds
-### Copy context
-```md
-# <leader>cc
+## ⚙️ Default keybinds + example output
+ - **Copy context** ~ `<leader>cc`
+```
 copy-nvim/README.md:6
 ```
-### Copy line with context
-```md
-# <leader>cl
-copy-nvim/README.md:24
+ - **Copy line with context** ~ `<leader>cl`
+```
+copy-nvim/README.md:23
 "zlatej/copy.nvim",
 ```
 
-## Setup
-
+## 📦 Setup
 Lazy:
-
 ```lua
 return {
 	"zlatej/copy.nvim",
@@ -35,7 +34,7 @@ return {
                 -- /home/user/.zshrc -> .zshrc
                 -- /home/user2/.zshrc -> /home/user2/.zshrc
             prefixes = {
-                "/home/user",
+                vim.fn.expand("~"), -- remove home directory
                 "code"
             },
             remove_indent = true
@@ -44,7 +43,7 @@ return {
 }
 ```
 
-## Features 
+## Roadmap 
 - [x] Copy only context
 - [x] One line copy
 - [x] More dynamic path prefix removing
