@@ -43,7 +43,7 @@ return {
 }
 ```
 
-## Roadmap 
+## 🗺️ Roadmap 
 - [x] Copy only context
 - [x] One line copy
 - [x] More dynamic path prefix removing
